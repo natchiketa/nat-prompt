@@ -68,7 +68,8 @@ function __nat_prompt_git
 
     # Check if git status
     if test -n "$full_git_status"
-      echo -e -n -s --bold "$NAT_PROMPT_GIT_STATUS_PREFIX$full_git_status$NAT_PROMPT_GIT_STATUS_SUFFIX"
+      set_color --bold
+      echo -e -n -s "$NAT_PROMPT_GIT_STATUS_PREFIX$full_git_status$NAT_PROMPT_GIT_STATUS_SUFFIX"
     end
   else
     printf ''

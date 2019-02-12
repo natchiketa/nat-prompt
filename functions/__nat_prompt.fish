@@ -11,7 +11,7 @@ function __nat_prompt
 
   # user@host
   __nat_prompt_section normal $userhost_bg $userhost_fg "" (whoami) \ue0be ""
-  __nat_prompt_section normal $userhost_bg black "" @ "" ""
+  __nat_prompt_section normal $userhost_bg black "" (set_color --bold; printf '@') "" ""
   __nat_prompt_section "" $userhost_bg $userhost_fg $pwd_bg (hostname -s) "" \ue0bc
 
   if test -d .git
