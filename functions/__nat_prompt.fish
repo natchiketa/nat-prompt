@@ -1,7 +1,7 @@
 # Defined in - @ line 1
 function __nat_prompt
-  set userhost_bg 2c1
-  set userhost_fg 051
+  set userhost_bg 090
+  set userhost_fg white
   set pwd_bg 0303aa
   set pwd_fg f7ee91
   set git_bg d66000
@@ -10,9 +10,7 @@ function __nat_prompt
   set ruby_fg fff
 
   # user@host
-  __nat_prompt_section normal $userhost_bg $userhost_fg "" (whoami) \ue0be ""
-  __nat_prompt_section normal $userhost_bg black "" (set_color --bold; printf '@') "" ""
-  __nat_prompt_section "" $userhost_bg $userhost_fg $pwd_bg (hostname -s) "" \ue0bc
+  __nat_prompt_section normal $userhost_bg $userhost_fg $pwd_bg (__nat_prompt_userhost) \ue0be \ue0bc
 
   if test -d .git
     set next_bg $git_bg
@@ -23,6 +21,7 @@ function __nat_prompt
   end
 
   # pwd
+  set_color --bold
   __nat_prompt_section $userhost_bg $pwd_bg $pwd_fg $next_bg (prompt_pwd) "" \ue0bc 
 
   if begin; test -e .ruby-version; or test -e .ruby-gemset; end

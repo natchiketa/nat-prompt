@@ -1,5 +1,6 @@
 function __nat_prompt_vi_mode
   printf '\ue62b '
+  set_color --bold
   switch $fish_bind_mode
     case default
       printf 'N'

@@ -1,6 +1,7 @@
 function __nat_prompt_git
   if test -d .git
     # Branch name
+    set_color --bold
     echo -e -n \uf418 (git rev-parse --abbrev-ref HEAD)
 
     # Status Info
@@ -68,7 +69,6 @@ function __nat_prompt_git
 
     # Check if git status
     if test -n "$full_git_status"
-      set_color --bold
       echo -e -n -s "$NAT_PROMPT_GIT_STATUS_PREFIX$full_git_status$NAT_PROMPT_GIT_STATUS_SUFFIX"
     end
   else
