@@ -1,5 +1,5 @@
 function __nat_prompt_git
-  if test -d .git
+  if test -d .git -o -f .git
     # Branch name
     set_color --bold
     echo -e -n \uf418 (git rev-parse --abbrev-ref HEAD)
